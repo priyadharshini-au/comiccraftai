@@ -1,3 +1,4 @@
+Comic craft Ai demo link : https://drive.google.com/file/d/1gB5WXcRIScXHnOeawOvEJeSj3C4AQVA5/view?usp=sharing
 # ComicCraft - AI Comic Story Creator
 
 ComicCraft is a FastAPI + Jinja2 web application that turns a user story idea into a five-panel comic.
