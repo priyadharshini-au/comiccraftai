@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicCraft - AI Comic Story Creator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="hero">
+    <div class="container">
+        <div class="brand">COMIC<span>CRAFT</span></div>
+        <p class="tagline">Turn your imagination into a five-panel comic.</p>
+
+        {% if error %}
+        <div class="alert">{{ error }}</div>
+        {% endif %}
+
+        <form action="/generate" method="post" class="card form-card" id="comicForm">
+            <label for="story_prompt">Story Prompt</label>
+            <textarea id="story_prompt" name="story_prompt" required
+                placeholder="A brave fox exploring an enchanted forest..."></textarea>
+
+            <div class="grid">
+                <div>
+                    <label for="character_name">Main Character Name</label>
+                    <input id="character_name" name="character_name" required placeholder="Luna">
+                </div>
+
+                <div>
+                    <label for="setting">Setting</label>
+                    <select id="setting" name="setting">
+                        <option>Enchanted Forest</option>
+                        <option>School</option>
+                        <option>Futuristic City</option>
+                        <option>Outer Space</option>
+                        <option>Underwater Kingdom</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="tone">Story Tone</label>
+                    <select id="tone" name="tone">
+                        <option>Light-hearted</option>
+                        <option>Funny</option>
+                        <option>Dramatic</option>
+                        <option>Poetic</option>
+                        <option>Adventurous</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="art_style">Art Style</label>
+                    <select id="art_style" name="art_style">
+                        <option>Anime</option>
+                        <option>Comic Book</option>
+                        <option>Pixel Art</option>
+                        <option>Realistic</option>
+                        <option>Watercolor</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="button" type="submit">✨ Generate My Comic</button>
+        </form>
+
+        <p class="footer-note">
+            ComicCraft uses Gemini for storytelling and an image-generation backend for illustrations.
+        </p>
+    </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

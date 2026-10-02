@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Comic - ComicCraft</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<div class="container preview-page">
+    <header class="preview-header">
+        <div>
+            <div class="brand">COMIC<span>CRAFT</span></div>
+            <p class="tagline">Your generated comic</p>
+        </div>
+        <a class="secondary-button" href="/">Create Another</a>
+    </header>
+
+    {% for panel in layout %}
+    <article class="comic-panel card">
+        <div class="panel-number">PANEL {{ panel.panel_number }}</div>
+        <h2>{{ panel.title }}</h2>
+
+        <img class="comic-image"
+             src="{{ panel.image_url }}"
+             alt="Generated illustration for panel {{ panel.panel_number }}">
+
+        <p class="scene"><em>{{ panel.scene_description }}</em></p>
+
+        <div class="comic-text">
+            <p><strong>Caption:</strong> {{ panel.caption }}</p>
+            <p><strong>Narration:</strong> {{ panel.narration }}</p>
+            {% if panel.dialogue %}
+            <p class="dialogue"><strong>Dialogue:</strong> {{ panel.dialogue }}</p>
+            {% endif %}
+        </div>
+
+        <details>
+            <summary>View image prompt</summary>
+            <p>{{ panel.image_prompt }}</p>
+        </details>
+    </article>
+    {% endfor %}
+
+    <div class="download-card card">
+        <h2>🎉 Your comic is ready!</h2>
+        <p>Download the complete comic as a PDF.</p>
+        <a class="button" href="{{ pdf_url }}" target="_blank" download>
+            📄 Download Your Comic as PDF
+        </a>
+    </div>
+</div>
+</body>
+</html>
